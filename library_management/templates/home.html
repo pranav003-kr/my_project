@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>{{ title }}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="container nav-content">
+
+        <a href="/" class="logo">
+            📚 BookShelf
+        </a>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/docs">API Docs</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <section class="hero">
+
+        <div>
+
+            <p class="eyebrow">
+                YOUR PERSONAL LIBRARY
+            </p>
+
+            <h1>
+                Discover your books.
+            </h1>
+
+            <p class="hero-text">
+                Keep track of the books connected to
+                your BookShelf readers.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="books-section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="eyebrow">
+                    COLLECTION
+                </p>
+
+                <h2>
+                    Available Books
+                </h2>
+            </div>
+
+            <span class="book-count">
+                {{ books|length }} books
+            </span>
+
+        </div>
+
+
+        {% if books %}
+
+        <div class="book-grid">
+
+            {% for book in books %}
+
+            <article class="book-card">
+
+                <div class="book-icon">
+                    📖
+                </div>
+
+                <div class="book-content">
+
+                    <p class="book-number">
+                        BOOK #{{ book.id }}
+                    </p>
+
+                    <h3>
+                        <a href="/books/{{ book.id }}">
+                            {{ book.title }}
+                        </a>
+                    </h3>
+
+                    <p class="description">
+                        {{ book.description[:140] }}
+                        {% if book.description|length > 140 %}
+                            ...
+                        {% endif %}
+                    </p>
+
+                    <div class="book-footer">
+
+                        <span>
+                            👤 {{ book.reader.name }}
+                        </span>
+
+                        <a
+                            href="/books/{{ book.id }}"
+                            class="read-link"
+                        >
+                            View →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                📚
+            </div>
+
+            <h3>
+                No books yet
+            </h3>
+
+            <p>
+                Add your first book using the API.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            BookShelf • FastAPI Library Project
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>{{ title }} • BookShelf</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <div class="container nav-content">
+
+        <a href="/" class="logo">
+            📚 BookShelf
+        </a>
+
+        <nav>
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/docs">
+                API Docs
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="breadcrumb">
+
+        <a href="/">
+            ← Back to books
+        </a>
+
+    </div>
+
+
+    <section class="reader-header">
+
+        <img
+            src="{{ reader.profile_path }}"
+            alt="{{ reader.name }}"
+            class="reader-profile"
+        >
+
+        <div>
+
+            <p class="eyebrow">
+                READER
+            </p>
+
+            <h1>
+                {{ reader.name }}
+            </h1>
+
+            <p class="reader-email">
+                {{ reader.email }}
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="books-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    COLLECTION
+                </p>
+
+                <h2>
+                    {{ reader.name }}'s Books
+                </h2>
+
+            </div>
+
+            <span class="book-count">
+                {{ books|length }} books
+            </span>
+
+        </div>
+
+
+        {% if books %}
+
+        <div class="book-grid">
+
+            {% for book in books %}
+
+            <article class="book-card">
+
+                <div class="book-icon">
+                    📖
+                </div>
+
+                <div class="book-content">
+
+                    <p class="book-number">
+                        BOOK #{{ book.id }}
+                    </p>
+
+                    <h3>
+
+                        <a href="/books/{{ book.id }}">
+                            {{ book.title }}
+                        </a>
+
+                    </h3>
+
+                    <p class="description">
+                        {{ book.description[:140] }}
+                    </p>
+
+                    <a
+                        href="/books/{{ book.id }}"
+                        class="read-link"
+                    >
+                        View book →
+                    </a>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                📚
+            </div>
+
+            <h3>
+                No books found
+            </h3>
+
+            <p>
+                This reader doesn't have any books yet.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            BookShelf • FastAPI Library Project
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>
