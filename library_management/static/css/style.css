@@ -1,124 +1,123 @@
+/* =========================================================
+   MITHILA (MADHUBANI) ARTISTIC THEME STYLESHEET
+   Key Elements: Handmade parchment canvas, double-ink lines (Kachni),
+   terracotta red (#a82810), turmeric yellow (#d9822b), & peacock indigo (#1b4353).
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Lora:ital,wght@0,500;0,700;1,400&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-
 body {
-    font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-    background: #f5f7fb;
-    color: #172033;
-
+    font-family: 'Lora', Georgia, serif;
+    background-color: #f7f1e5; /* Natural parchment background */
+    background-image: 
+        radial-gradient(#d9822b 0.75px, transparent 0.75px),
+        radial-gradient(#a82810 0.75px, #f7f1e5 0.75px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px; /* Subtle hand-stippled texture */
+    color: #1b110b; /* Lampblack ink tone */
     line-height: 1.6;
 }
-
 
 a {
     color: inherit;
     text-decoration: none;
 }
 
-
 .container {
     width: min(1100px, 92%);
     margin: 0 auto;
 }
-
 
 /* =========================
    NAVBAR
    ========================= */
 
 .navbar {
-    background: #ffffff;
-    border-bottom: 1px solid #e5e8ef;
+    background: #fffdf9;
+    border-bottom: 4px double #1b110b; /* Traditional double-line ink border */
+    box-shadow: 0 4px 0 #a82810; /* Terracotta accent strip */
 }
 
-
 .nav-content {
-    min-height: 72px;
-
+    min-height: 76px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-
 .logo {
-    font-size: 1.25rem;
+    font-family: 'Rozha One', 'Yatra One', serif;
+    font-size: 1.6rem;
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: 0.03em;
+    color: #a82810; /* Terracotta red */
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 #d9822b;
 }
-
 
 nav {
     display: flex;
     gap: 24px;
 }
 
-
 nav a {
-    color: #657086;
-    font-size: 0.95rem;
-    font-weight: 600;
+    color: #1b110b;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Lora', serif;
+    position: relative;
 }
-
 
 nav a:hover {
-    color: #172033;
+    color: #a82810;
+    text-decoration: underline double #a82810;
 }
-
 
 /* =========================
    HERO
    ========================= */
 
 .hero {
-    padding: 90px 0 70px;
+    padding: 80px 0 60px;
 }
-
 
 .eyebrow {
-    color: #6675d9;
-
-    font-size: 0.75rem;
-    font-weight: 800;
-
-    letter-spacing: 0.14em;
-
-    margin-bottom: 8px;
+    color: #1b4353; /* Peacock Indigo */
+    font-family: 'Lora', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+    border-bottom: 2px dashed #1b4353;
+    padding-bottom: 2px;
 }
 
-
 .hero h1 {
-    max-width: 700px;
-
-    font-size: clamp(2.7rem, 7vw, 5rem);
-
-    line-height: 1.02;
-
-    letter-spacing: -0.055em;
-
+    max-width: 750px;
+    font-family: 'Rozha One', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    color: #1b110b;
     margin-bottom: 22px;
 }
 
-
 .hero-text {
-    max-width: 600px;
-
-    color: #687287;
-
+    max-width: 620px;
+    color: #3d312a;
     font-size: 1.15rem;
+    background: rgba(255, 253, 249, 0.7);
+    padding: 16px 20px;
+    border-left: 5px solid #a82810;
+    border-right: 5px solid #a82810;
 }
-
 
 /* =========================
    SECTION
@@ -128,159 +127,126 @@ nav a:hover {
     padding-bottom: 80px;
 }
 
-
 .section-heading {
     display: flex;
     justify-content: space-between;
     align-items: end;
-
-    margin-bottom: 28px;
+    margin-bottom: 32px;
+    border-bottom: 3px double #1b110b;
+    padding-bottom: 12px;
 }
-
 
 .section-heading h2 {
-    font-size: 2rem;
-
-    letter-spacing: -0.035em;
+    font-family: 'Rozha One', serif;
+    font-size: 2.2rem;
+    color: #a82810;
 }
-
 
 .book-count {
-    color: #687287;
-
-    font-size: 0.9rem;
-
+    color: #1b4353;
+    font-size: 0.95rem;
     font-weight: 700;
+    background: #e8f1f5;
+    padding: 4px 12px;
+    border: 2px solid #1b4353;
+    border-radius: 4px;
 }
 
-
 /* =========================
-   BOOK GRID
+   BOOK GRID & CARDS
    ========================= */
 
 .book-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(300px, 1fr));
-
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
 }
-
 
 .book-card {
-    background: #ffffff;
-
-    border: 1px solid #e5e8ef;
-
-    border-radius: 18px;
-
+    background: #fffdf9;
+    border: 3px solid #1b110b;
+    outline: 2px solid #a82810; /* Inner framework border */
+    outline-offset: -6px;
     padding: 24px;
-
     display: flex;
-
     gap: 20px;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    box-shadow: 6px 6px 0 #1b110b; /* Folk block shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 
 .book-card:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 14px 40px rgba(30, 40, 70, 0.09);
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0 #a82810;
 }
-
 
 .book-icon {
-    width: 58px;
-    height: 72px;
-
+    width: 60px;
+    height: 76px;
     flex-shrink: 0;
-
     display: grid;
     place-items: center;
-
-    border-radius: 10px;
-
-    background: #eef0ff;
-
-    font-size: 1.8rem;
+    background: #fceade;
+    border: 2px solid #a82810;
+    color: #a82810;
+    font-size: 2rem;
+    box-shadow: inset 0 0 0 3px #fffdf9;
 }
-
 
 .book-content {
     min-width: 0;
 }
 
-
 .book-number {
-    color: #8a93a6;
-
-    font-size: 0.7rem;
-
-    font-weight: 800;
-
-    letter-spacing: 0.1em;
-
+    color: #d9822b;
+    font-family: 'Lora', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     margin-bottom: 5px;
 }
 
-
 .book-card h3 {
-    font-size: 1.25rem;
-
+    font-family: 'Rozha One', serif;
+    font-size: 1.3rem;
     line-height: 1.25;
-
     margin-bottom: 10px;
+    color: #1b110b;
 }
-
 
 .book-card h3 a:hover {
-    color: #6675d9;
+    color: #a82810;
 }
 
-
 .description {
-    color: #687287;
-
-    font-size: 0.92rem;
-
+    color: #4a3d35;
+    font-size: 0.95rem;
     margin-bottom: 18px;
 }
 
-
 .book-footer {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 10px;
-
-    color: #687287;
-
-    font-size: 0.82rem;
+    color: #5c4d43;
+    font-size: 0.85rem;
+    border-top: 1px dashed #1b110b;
+    padding-top: 10px;
 }
-
 
 .read-link {
-    color: #6675d9;
-
-    font-weight: 800;
-
+    color: #a82810;
+    font-weight: 700;
     white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
 }
-
 
 .read-link:hover {
+    color: #d9822b;
     text-decoration: underline;
 }
-
 
 /* =========================
    SINGLE BOOK
@@ -288,137 +254,103 @@ nav a:hover {
 
 .breadcrumb {
     padding: 36px 0 20px;
-
-    color: #6675d9;
-
-    font-size: 0.9rem;
-
+    color: #1b4353;
     font-weight: 700;
+    font-size: 0.95rem;
 }
-
 
 .single-book {
     display: grid;
-
-    grid-template-columns: 180px 1fr;
-
+    grid-template-columns: 200px 1fr;
     gap: 50px;
-
-    background: #ffffff;
-
-    border: 1px solid #e5e8ef;
-
-    border-radius: 24px;
-
+    background: #fffdf9;
+    border: 4px double #1b110b;
+    outline: 4px solid #d9822b;
+    outline-offset: -12px;
     padding: 45px;
-
     margin-bottom: 80px;
+    box-shadow: 8px 8px 0 #1b110b;
 }
-
 
 .large-book-icon {
     width: 180px;
     height: 240px;
-
     display: grid;
     place-items: center;
-
-    background: #eef0ff;
-
-    border-radius: 16px;
-
+    background: #fceade;
+    border: 3px double #a82810;
+    color: #a82810;
     font-size: 5rem;
 }
 
-
 .single-book-content h1 {
-    font-size: clamp(2rem, 5vw, 3.8rem);
-
-    line-height: 1.05;
-
-    letter-spacing: -0.05em;
-
-    margin-bottom: 28px;
+    font-family: 'Rozha One', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.1;
+    color: #1b110b;
+    margin-bottom: 24px;
 }
-
 
 .author-box {
     display: flex;
-
     align-items: center;
-
     gap: 14px;
-
     margin-bottom: 35px;
 }
 
-
 .profile-image {
-    width: 50px;
-    height: 50px;
-
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
-
     object-fit: cover;
+    border: 3px solid #1b110b;
+    outline: 2px solid #a82810;
 }
-
 
 .small-label {
     display: block;
-
-    color: #8a93a6;
-
-    font-size: 0.68rem;
-
-    font-weight: 800;
-
+    color: #5c4d43;
+    font-size: 0.72rem;
+    font-weight: 700;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
-
 
 .reader-name {
-    color: #6675d9;
-
-    font-weight: 800;
+    color: #a82810;
+    font-weight: 700;
+    font-family: 'Rozha One', serif;
+    font-size: 1.1rem;
 }
 
-
 .description-box {
-    border-top: 1px solid #e5e8ef;
-
-    padding-top: 25px;
-
+    border-top: 3px double #1b110b;
+    border-bottom: 3px double #1b110b;
+    padding: 25px 0;
     margin-bottom: 28px;
 }
 
-
 .description-box h2 {
-    font-size: 1.2rem;
-
+    font-family: 'Rozha One', serif;
+    font-size: 1.3rem;
+    color: #1b4353;
     margin-bottom: 10px;
 }
 
-
 .description-box p {
-    color: #687287;
-
-    font-size: 1rem;
+    color: #3d312a;
+    font-size: 1.05rem;
 }
-
 
 .date-box {
-    color: #687287;
-
-    font-size: 0.85rem;
+    color: #5c4d43;
+    font-size: 0.9rem;
 }
-
 
 .date-box strong {
-    color: #172033;
-
+    color: #1b110b;
     margin-left: 5px;
 }
-
 
 /* =========================
    READER PAGE
@@ -426,79 +358,60 @@ nav a:hover {
 
 .reader-header {
     display: flex;
-
     align-items: center;
-
-    gap: 24px;
-
+    gap: 28px;
     padding: 60px 0;
 }
 
-
 .reader-profile {
-    width: 90px;
-    height: 90px;
-
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-
     border-radius: 50%;
-
-    border: 4px solid #ffffff;
-
-    box-shadow:
-        0 5px 25px rgba(30, 40, 70, 0.12);
+    border: 4px solid #1b110b;
+    outline: 3px solid #d9822b;
+    box-shadow: 6px 6px 0 #a82810;
 }
-
 
 .reader-header h1 {
-    font-size: 2.8rem;
-
-    line-height: 1.05;
-
-    letter-spacing: -0.045em;
+    font-family: 'Rozha One', serif;
+    font-size: 3rem;
+    color: #1b110b;
 }
-
 
 .reader-email {
-    color: #687287;
-
+    color: #1b4353;
+    font-weight: 700;
     margin-top: 5px;
 }
-
 
 /* =========================
    EMPTY STATE
    ========================= */
 
 .empty-state {
-    background: #ffffff;
-
-    border: 1px dashed #ccd1dc;
-
-    border-radius: 18px;
-
+    background: #fffdf9;
+    border: 3px dashed #1b110b;
     padding: 70px 30px;
-
     text-align: center;
+    box-shadow: inset 0 0 0 8px #fceade;
 }
 
-
 .empty-icon {
-    font-size: 3rem;
-
+    font-size: 3.5rem;
+    color: #a82810;
     margin-bottom: 15px;
 }
 
-
 .empty-state h3 {
-    margin-bottom: 6px;
+    font-family: 'Rozha One', serif;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
 }
-
 
 .empty-state p {
-    color: #687287;
+    color: #5c4d43;
 }
-
 
 /* =========================
    ERROR PAGE
@@ -506,142 +419,111 @@ nav a:hover {
 
 .error-page {
     min-height: 70vh;
-
     display: grid;
-
     place-items: center;
 }
 
-
 .error-card {
     width: min(550px, 100%);
-
-    background: #ffffff;
-
-    border: 1px solid #e5e8ef;
-
-    border-radius: 24px;
-
+    background: #fffdf9;
+    border: 4px double #1b110b;
+    outline: 4px solid #a82810;
+    outline-offset: -10px;
     padding: 60px 40px;
-
     text-align: center;
+    box-shadow: 8px 8px 0 #1b110b;
 }
 
-
 .error-number {
-    color: #6675d9;
-
-    font-size: 5rem;
-
-    font-weight: 900;
-
+    color: #a82810;
+    font-family: 'Rozha One', serif;
+    font-size: 5.5rem;
     line-height: 1;
 }
 
-
 .error-card h1 {
+    font-family: 'Rozha One', serif;
     margin: 15px 0 10px;
 }
 
-
 .error-card p {
-    color: #687287;
-
+    color: #5c4d43;
     margin-bottom: 28px;
 }
 
-
 .button {
     display: inline-block;
-
-    background: #172033;
-
-    color: #ffffff;
-
-    padding: 11px 20px;
-
-    border-radius: 10px;
-
+    background: #a82810;
+    color: #fffdf9;
+    padding: 12px 24px;
+    border: 2px solid #1b110b;
+    font-family: 'Lora', serif;
     font-weight: 700;
+    box-shadow: 3px 3px 0 #1b110b;
+    transition: all 0.15s ease;
 }
-
 
 .button:hover {
-    background: #303a52;
+    background: #d9822b;
+    color: #1b110b;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #1b110b;
 }
-
 
 /* =========================
    FOOTER
    ========================= */
 
 footer {
-    background: #172033;
-
-    color: #aeb6c7;
-
-    padding: 25px 0;
-
-    font-size: 0.85rem;
+    background: #1b110b;
+    color: #f7f1e5;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    border-top: 4px solid #a82810;
+    text-align: center;
 }
 
-
 /* =========================
-   MOBILE
+   MOBILE RESPONSIVE
    ========================= */
 
 @media (max-width: 700px) {
 
     .nav-content {
         flex-direction: column;
-
         justify-content: center;
-
-        gap: 10px;
-
+        gap: 12px;
         padding: 15px 0;
     }
 
-
     .hero {
-        padding: 60px 0 50px;
+        padding: 50px 0 40px;
     }
-
 
     .section-heading {
         align-items: start;
-
         flex-direction: column;
-
         gap: 8px;
     }
 
-
     .single-book {
         grid-template-columns: 1fr;
-
         padding: 25px;
-
         gap: 30px;
     }
 
-
     .large-book-icon {
         width: 100%;
-
         height: 180px;
     }
 
-
     .reader-header {
         padding: 40px 0;
-
         align-items: start;
     }
 
-
     .reader-header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
 }
